@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <title>Random Quiz</title>
+</head>
+<style>
+    body{
+        margin:30px 30px;
+        background:;
+        }
+    .quest-box{
+        background:;
+        }
+    h5{
+        white-space: pre-line;
+        }
+    .answer-box{
+        background:;
+        }
+    a{
+        margin-right:30px;
+        display:inline-block;
+        text-decoration:none;
+        }
+    form,span,td{
+        float:right;
+        }
+    input{
+    width:200px;
+    }
+
+</style>
+<body>
+<header>
+    MCQ QUESTIONS<span>SET X</span><br>
+</header>
+   <form action="/pdf" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label>number Of Question  :</label>
+                    <input type="number" name="NoQ" placeholder="number of Questions in each paper" value="{{ quest|length }}" max="{{ quest|length }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>number Of Sets     :</label>
+                    <input type="number" name="NoS" placeholder="number of sets of papers" value="1" max="5">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" onclick="myFunction()" value="PDF" >
+                </td>
+            </tr>
+        </table>
+    </form>
+<script>
+function myFunction() {
+  alert("close this now, and wait until next message!!");
+}
+</script>
+
+<!--show all the question in csv file-->
+{% for k,v  in quest.items() -%}
+<div class="quest-box">
+
+                  <h5>
+                   {{ loop.index }}  {{k}}
+                  </h5>
+                <div class="answer-box">
+
+                    {% for ans in v -%}
+                    <a class="">{{     ans   }}</a>
+                    {% endfor %}
+                </div>
+</div>
+<hr>
+{% endfor %}
+
+
+
+</body>
+</html>

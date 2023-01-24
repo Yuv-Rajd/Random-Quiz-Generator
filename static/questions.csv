@@ -1,0 +1,9 @@
+Q,A,B,C,D,key
+what is the capital of india?,kolkata,delhi,mumbai,bengaluru,B
+what is the capital of china?,taiwan,hong kong,bejing,nepal,C
+"what is the output of the following code snippet ?
+
+int main() {
+    printf(""hello students"");
+    main();
+}",error,hello students,"prints ""hello students"" infinte times",none,C
